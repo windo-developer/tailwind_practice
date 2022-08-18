@@ -2,8 +2,8 @@ import type { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-slate-400 px-20 py-20 grid gap-10 min-h-screen">
-      <div className="bg-white p-10 rounded-3xl shadow-xl">
+    <div className="bg-slate-400 px-20 py-20 grid gap-10 xl:place-content-center lg:grid-cols-2 xl:grid-cols-3 min-h-screen dark">
+      <div className="bg-white flex flex-col justify-between p-10 rounded-3xl shadow-xl">
         <form className="flex flex-col space-y-2 bg-blue-500 p-5 focus-within:bg-blue-100">
           <input
             type="text"
@@ -33,16 +33,16 @@ const Home: NextPage = () => {
           <input type="submit" value="Login" />
         </form>
       </div>
-      <div className="bg-white p-10 rounded-3xl shadow-xl">
+      <div className="bg-white dark:bg-black flex flex-col justify-between p-10 rounded-3xl shadow-xl">
         <span className="font-bold text-3xl">Select Item</span>
         <ul>
           {[1, 2, 3, 4, 5].map((i) => (
             <div
               key={i}
-              className="flex justify-between my-2 odd:bg-blue-50 even:bg-yellow-100"
+              className="flex justify-between my-2 odd:bg-blue-50 even:bg-yellow-100 dark:odd:bg-black dark:even:bg-black"
             >
-              <span className="text-gray-500">Grey Chair</span>
-              <span className="font-semibold">$19</span>
+              <span className="text-gray-500 dark:text-white">Grey Chair</span>
+              <span className="font-semibold dark:text-white">$19</span>
             </div>
           ))}
         </ul>
@@ -54,19 +54,19 @@ const Home: NextPage = () => {
           ))}
         </ul>
         <div className="flex justify-between">
-          <span className="text-gray-500">Grey Table</span>
-          <span className="font-semibold">$190</span>
+          <span className="text-gray-500 dark:text-white">Grey Table</span>
+          <span className="font-semibold dark:text-white">$190</span>
         </div>
         <div className="flex justify-between mt-2 pt-2 border-t-2 border-dashed">
-          <span className="text-xl">Total</span>
-          <span className="font-semibold">$209</span>
+          <span className="text-xl dark:text-white">Total</span>
+          <span className="font-semibold dark:text-white">$209</span>
         </div>
-        <div className="mt-5 bg-blue-500 text-white p-2 text-center rounded-xl w-2/4 mx-auto hover:bg-teal-500 active:bg-yellow-500">
+        <div className="mt-5 bg-blue-500 dark:bg-black dark:border-white dark:border text-white dark:hover:text-black p-2 text-center rounded-xl w-2/4 mx-auto hover:bg-teal-500 active:bg-yellow-500 dark:hover:bg-white">
           Check Out
         </div>
       </div>
       <div className="bg-white overflow-hidden rounded-2xl shadow-xl group">
-        <div className="bg-blue-500 p-6 pb-14">
+        <div className="landscape:bg-blue-500 portrait:bg-indigo-400 p-6 pb-14 xl:pb-36">
           <span className="text-white text-2xl">Profile</span>
         </div>
         <div className="rounded-3xl p-6 bg-white relative -top-5">
@@ -87,7 +87,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white p-10 rounded-3xl shadow-xl">
+      <div className="bg-white p-10 rounded-3xl shadow-xl lg:col-span-2 xl:col-span-1">
         <div className="flex justify-between mb-5 items-center">
           <span>⬅️</span>
           <div className="space-x-3">
@@ -123,7 +123,24 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white p-10 rounded-2xl shadow-xl"></div>
+      <div className="bg-white p-10 rounded-2xl shadow-xl">
+        <details className="select-none open:text-white">
+          <summary className="cursor-pointer">dropdown</summary>
+          <span>item1</span>
+        </details>
+        <ul className="list-decimal">
+          <li>item1</li>
+          <li>item2</li>
+          <li>item3</li>
+        </ul>
+        <input
+          type="file"
+          className="file:cursor-pointer file:transition file:border-0 file:rounded-md file:px-5"
+        ></input>
+        <p className="first-letter:text-5xl first-letter:hover:text-red-300">
+          First text
+        </p>
+      </div>
     </div>
   );
 };
